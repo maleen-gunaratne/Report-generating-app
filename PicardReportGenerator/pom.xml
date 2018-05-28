@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ebuilder.picard</groupId>
+  <artifactId>PicardReportGenerator</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>PicardReportGenerator</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20090211</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+<groupId>com.fasterxml.jackson.core</groupId>
+<artifactId>jackson-databind</artifactId>
+<version>2.2.3</version>
+</dependency>
+  </dependencies>
+   <build>
+        <plugins>
+            
+
+	
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                          <addClasspath>true</addClasspath>
+                          <mainClass>com.ebuilder.picard.App</mainClass>
+                        </manifest>
+                      </archive>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive />
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+ 
+ <!--     <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <descriptors>
+            <descriptor>src/assembly/src.xml</descriptor>
+          </descriptors>
+        </configuration>
+      </plugin>
+  
+-->
+</plugins>
+</build>
+</project>
